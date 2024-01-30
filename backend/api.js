@@ -20,20 +20,19 @@ const app = express();
 
 const DB = "mongodb+srv://vaqsi24:juventus1990@shop.31bo5lw.mongodb.net/travelblog?w=majority";
 
-const allowedOrigins = ['http://localhost:5173'];
+const allowedOrigins = ['https://node-dj0i.onrender.com'];
 
-
-
-
-app.use(cors({
-  origin: function (origin, callback) {
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-}));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin) || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+  })
+);
 
 //midlewares
 app.use(cookieParser())
